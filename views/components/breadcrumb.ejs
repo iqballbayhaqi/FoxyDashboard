@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+  <% menus.forEach( (res, index) => { %>
+  <li class="breadcrumb-item <%= (menus.length - 1 )=== index ? 'active' : '' %>">
+    <a href="<%= res.link %>"><%= res.name %></a>
+  </li>
+  <% }) %>
+</ol>

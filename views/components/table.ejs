@@ -1,0 +1,32 @@
+<table class="table table-bordered" style="margin-top: 20px;">
+  <thead class="table-dark">
+      <tr>
+        <% for (key in data[0]) { %>
+          <% if (key !== 'id') { %>
+            <th scope="col" style="text-transform: capitalize;"><%= key %></th>
+          <% } %>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach( res => { %>
+        <tr>
+          <% for (key in data[0]) { %>
+            <% if (key !== 'id') { %>
+              <td>
+                <% if (key === 'action') { %>
+                  <% res[key].forEach( action => { %>
+                    <a href="<%= action.link.replace(':id', res.id) %>">
+                      <button type="button" class="btn btn-info text-dark"><%= action.name %></button>
+                    </a>
+                  <% }) %>
+                <% } else { %>
+                  <%= res[key] %>
+                <% } %>
+              </td>
+            <% } %>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
