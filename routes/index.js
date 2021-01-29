@@ -31,8 +31,8 @@ const isLoginCustomer = (req, res, next) => {
   }
 };
 
-router.use('/', home)
 router.use(validation);
+router.use('/', isLoginAdmin, home)
 router.use("/products", isLoginAdmin, product);
 router.use("/categories", isLoginAdmin, category);
 router.use("/admins", isLoginAdmin, admin);
