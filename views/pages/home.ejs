@@ -48,23 +48,27 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
+      var parsed_data = <%- JSON.stringify(listDate) %>
+      const keyData = Object.keys(parsed_data)
+      const valueData = Object.values(parsed_data)
+      console.log(keyData)
+      console.log(valueData);
       var ctx = document.getElementById("myChart").getContext("2d");
+      
       var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: "line",
 
+
         // The data for our dataset
         data: {
-          labels: [
-            "Senin",
-            "Selasa",
-          ],
+          labels: keyData.slice(0,7),
           datasets: [
             {
               label: "Penjualan Minggu ini",
               backgroundColor: "#ffc107",
               borderColor: "#ffc107",
-              data: [0, 10],
+              data: valueData.slice(0,7),
             },
           ],
         },

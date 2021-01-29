@@ -3,7 +3,9 @@ const validation = require("./validation");
 const product = require("./product");
 const category = require("./category");
 const admin = require("./admin");
-const store = require("./store")
+const store = require("./store");
+const home = require("./home");
+const { route } = require("./validation");
 
 const isLoginAdmin = (req, res, next) => {
   if (req.session.token) {
@@ -29,10 +31,7 @@ const isLoginCustomer = (req, res, next) => {
   }
 };
 
-router.get("/", isLoginAdmin, (req, res) => {
-  res.render("pages/home");
-});
-
+router.use('/', home)
 router.use(validation);
 router.use("/products", isLoginAdmin, product);
 router.use("/categories", isLoginAdmin, category);
