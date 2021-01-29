@@ -39,6 +39,7 @@
               'nama produk': res.name,
               harga: rupiah(res.price),
               stock: numberSeparator(res.stock),
+              category: res.Categories[0].name,
               action: [
             { name: 'Lihat Detail', link: '/products/:id'},
             { name: 'Edit', link: '/products/:id/edit'},

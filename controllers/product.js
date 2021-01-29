@@ -3,7 +3,9 @@ const { Product, Category, ProductCategory } = require('../models')
 class ProductController {
 
   static showAll(req, res) {
-    Product.findAll()
+    Product.findAll({
+      include: Category
+    })
     .then( data => {
       res.render('pages/products', { data: data })
     })
