@@ -23,19 +23,17 @@ const isLoginCustomer = (req, res, next) => {
   if (req.session.token) {
     if (req.session.role === 'customer') {
       next();
-    } else if (req.session.role === 'admin') {
-      res.redirect("/")
-    }
+    } 
   } else {
     res.redirect("/login");
   }
 };
 
 router.use(validation);
+router.use("/store", isLoginCustomer, store)
 router.use('/', isLoginAdmin, home)
 router.use("/products", isLoginAdmin, product);
 router.use("/categories", isLoginAdmin, category);
 router.use("/admins", isLoginAdmin, admin);
-router.use("/store", isLoginCustomer, store)
 
 module.exports = router;

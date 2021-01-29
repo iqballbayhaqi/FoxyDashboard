@@ -8,7 +8,7 @@ class ProductController {
       res.render('pages/products', { data: data })
     })
     .catch( err => {
-      res.send(err)
+      res.send(err.message)
     })
   }
 
