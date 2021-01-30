@@ -11,6 +11,7 @@ This is a repository made to complete the requirements of the Phase 1 pair proje
 * [multer](https://www.npmjs.com/package/multer)
 * [Express-session](https://www.npmjs.com/package/express-session)
 * [ChartJS](https://www.chartjs.org/)
+* [Bootstrap](https://getbootstrap.com/)
 
 ## Preview
 
